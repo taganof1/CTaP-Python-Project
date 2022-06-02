@@ -1,0 +1,46 @@
+import random
+maxguesses = 5
+
+gameFinished = False
+while not gameFinished:
+    gen=random.randint(1,10)
+    gameOver = False
+    nooftries = 0
+
+
+    while not gameOver:
+        guess = None
+
+
+        positiveint = False
+        while not positiveint:
+            inputs = input("Guess a number between 1 and 10\n ")
+            if inputs.isdigit():
+                user = int(inputs)
+                nooftries += 1
+                positiveint = True
+            else: 
+                print("Must be positive interger")
+
+
+
+    if user < gen:
+        print("Your guess is too low")
+    elif user > gen:
+         print("Your guess is too high")
+    else:
+         print ("You got it right. You win!")
+         gameOver = True
+         print("Good Job")
+
+    if nooftries == maxguesses:
+        print("You ran out of guesses")
+        print("Better Luck Next Time")
+        gameOver = True
+
+response = input('Do you want to play again? (y/n): ')
+response = response.lower()
+if response == 'n':
+    gameFinished = True
+
+print('Game Over')
